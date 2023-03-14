@@ -1,0 +1,172 @@
+.clock {
+	border: 2px solid rgba(255, 153, 0, 0.5);
+	background: linear-gradient(to bottom right, #22c1c3, #fdbb2d);
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	position: relative;
+	margin: 50px auto;
+	// animation: rotate 60s linear infinite;
+}
+
+.hour-hand {
+	width: 6px;
+	height: 50px;
+	background-color: #000;
+	position: absolute;
+	top: 24%;
+	left: 50%;
+	transform-origin: bottom center;
+	// transform: translateX(-50%) rotate(90deg);
+	animation: rotate-hour 180s linear infinite;
+}
+
+.minute-hand {
+	width: 4px;
+	height: 80px;
+	background-color: #000;
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	transform-origin: bottom center;
+	// transform: translateX(-50%) rotate(180deg);
+	animation: rotate-minute 120s linear infinite;
+}
+
+.second-hand {
+	width: 2px;
+	height: 95px;
+	background-color: red;
+	position: absolute;
+	top: 2%;
+	left: 50%;
+	transform-origin: bottom center;
+	// transform: translateX(-50%) rotate(270deg);
+	animation: rotate-second 60s linear infinite;
+}
+
+.center-circle {
+	width: 10px;
+	height: 10px;
+	background-color: #000;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@keyframes rotate-hour {
+	from {
+		transform: translateX(-50%) rotate(90deg);
+	}
+	to {
+		transform: translateX(-50%) rotate(450deg);
+	}
+}
+
+@keyframes rotate-minute {
+	from {
+		transform: translateX(-50%) rotate(180deg);
+	}
+	to {
+		transform: translateX(-50%) rotate(540deg);
+	}
+}
+
+@keyframes rotate-second {
+	from {
+		transform: translateX(-50%) rotate(270deg);
+	}
+	to {
+		transform: translateX(-50%) rotate(630deg);
+	}
+}
+
+// TASK 2
+
+.content {
+	position: relative;
+	width: 100%;
+	height: 700px;
+}
+
+.door {
+	position: relative;
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.left,
+.right {
+	position: absolute;
+	// top: 0;
+	width: 50%;
+	height: 100%;
+	background-color: purple;
+	transition: transform 3s ease;
+	transition: width 3s ease;
+}
+
+.left {
+	transform-origin: left;
+}
+
+.right {
+	right: 0;
+	transform-origin: right;
+}
+
+.door:hover .left {
+	transform: skewy(15deg);
+	width: 35%;
+}
+
+.door:hover .right {
+	transform: skewy(-15deg);
+	width: 35%;
+}
+
+.text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 35px;
+}
+
+//  task 3
+
+.section {
+	display: flex;
+	height: 250px;
+
+	&__text {
+		height: 100%;
+		width: 50%;
+		font-size: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__img {
+		overflow: hidden;
+		height: 100%;
+		width: 50%;
+
+		img {
+			width: 100%;
+		}
+	}
+	&__img:hover,
+	&__text:hover {
+		background-color: #333;
+		transition: opacity 0.3s ease-in-out;
+		opacity: 0.6;
+	}
+}
